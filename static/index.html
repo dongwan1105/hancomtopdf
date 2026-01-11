@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="한글 문서(HWP, HWPX)를 PDF로 간편하게 변환하세요">
+    <title>한글 → PDF 변환기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 배경 효과 -->
+        <div class="bg-gradient"></div>
+        <div class="bg-pattern"></div>
+        
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">📄</span>
+                <h1>한글 → PDF 변환기</h1>
+            </div>
+            <p class="subtitle">HWP, HWPX 파일을 PDF로 간편하게 변환하세요</p>
+        </header>
+
+        <!-- 메인 컨텐츠 -->
+        <main class="main-content">
+            <!-- 드래그 앤 드롭 영역 -->
+            <div class="dropzone" id="dropzone">
+                <div class="dropzone-content">
+                    <div class="dropzone-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p class="dropzone-text">파일을 여기에 드래그하세요</p>
+                    <p class="dropzone-subtext">또는 클릭하여 파일 선택</p>
+                    <p class="dropzone-hint">.hwp, .hwpx 파일 지원 • 여러 파일 동시 업로드 가능</p>
+                </div>
+                <input type="file" id="file-input" multiple accept=".hwp,.hwpx" hidden>
+            </div>
+
+            <!-- 파일 목록 -->
+            <div class="file-list-container" id="file-list-container">
+                <div class="file-list-header">
+                    <h2>📋 변환 목록</h2>
+                    <div class="file-list-actions">
+                        <button class="btn btn-secondary" id="clear-btn">
+                            <span>🗑️</span> 목록 비우기
+                        </button>
+                        <button class="btn btn-primary" id="convert-btn">
+                            <span>⚡</span> 변환 시작
+                        </button>
+                    </div>
+                </div>
+                <ul class="file-list" id="file-list"></ul>
+            </div>
+
+            <!-- 변환 결과 -->
+            <div class="results-container" id="results-container">
+                <div class="results-header">
+                    <h2>✅ 변환 완료</h2>
+                    <button class="btn btn-accent" id="download-all-btn">
+                        <span>📦</span> 전체 다운로드 (ZIP)
+                    </button>
+                </div>
+                <ul class="results-list" id="results-list"></ul>
+            </div>
+
+            <!-- 진행 상태 -->
+            <div class="progress-container" id="progress-container">
+                <div class="progress-info">
+                    <span class="progress-text" id="progress-text">변환 중...</span>
+                    <span class="progress-count" id="progress-count">0 / 0</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 푸터 -->
+        <footer class="footer">
+            <p>💡 한컴오피스가 설치된 Windows에서만 동작합니다</p>
+        </footer>
+    </div>
+
+    <!-- 알림 토스트 -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

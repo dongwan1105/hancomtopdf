@@ -20,12 +20,33 @@
 - Python 3.8 이상
 - 한컴오피스 한글 (2020 이상 권장)
 
-## 🚀 설치 및 실행
+## 🚀 간편 실행 (권장)
+
+### 1. 저장소 다운로드
+
+```bash
+git clone https://github.com/dongwan1105/hancomtopdf.git
+cd hancomtopdf
+```
+
+또는 [ZIP 파일 다운로드](https://github.com/dongwan1105/hancomtopdf/archive/refs/heads/main.zip) 후 압축 해제
+
+### 2. 실행
+
+**`hwptopdf.bat`** 파일을 더블클릭하면 끝!
+
+- 처음 실행 시 자동으로 필요한 패키지 설치
+- 서버 시작 후 브라우저가 자동으로 열림
+- 종료하려면 명령 프롬프트 창을 닫으면 됨
+
+---
+
+## 🔧 수동 설치 (개발자용)
 
 ### 1. 저장소 클론
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/hancomtopdf.git
+git clone https://github.com/dongwan1105/hancomtopdf.git
 cd hancomtopdf
 ```
 
